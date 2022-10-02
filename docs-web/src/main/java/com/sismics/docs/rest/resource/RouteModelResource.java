@@ -164,6 +164,25 @@ public class RouteModelResource extends BaseResource {
                 } catch (IllegalArgumentException e) {
                     throw new ClientException("ValidationError", typeStr + "is not a valid route step type");
                 }
+                
+                // Priority
+                String priorityStr = step.getString("priority");
+                RouteStepPriorityType priority;
+                try {
+                    priority = RouteStepType.valueOf(priorityStr);
+                } catch (IllegalArgumentException e) {
+                    throw new ClientException("ValidationError", priorityStr + "is not a valid route step priority type");
+                }
+
+                // Status
+                String statusStr = step.getString("status");
+                RouteStepStatusType status;
+                try {
+                    status = RouteStepType.valueOf(statusStr);
+                } catch (IllegalArgumentException e) {
+                    throw new ClientException("ValidationError", priorityStr + "is not a valid route step priority type");
+                }
+
 
                 // Target
                 JsonObject target = step.getJsonObject("target");
