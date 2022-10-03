@@ -66,6 +66,18 @@
     <td>
       <acl data="step.target"></acl>
     </td>
+
+    <!--adding column description for Priority--> 
+    <td>
+      <td>{{ step.name }}</td>
+    </td>
+    <!--adding column description for status-->
+    <td>
+      <td>{{ step.name }}</td>
+    </td>
+    <!--end changes-->
+
+
     <td>
       <span ng-show="step.end_date">
           {{ 'workflow_transition.' + step.transition | translate }}
@@ -77,6 +89,8 @@
         </span>
       </span>
     </td>
+    
+
   </tr>
   </tbody>
 </table>
