@@ -66,6 +66,7 @@
     "shared": "Shared",
     "current_step_name": "Current step",
     "title": "Title",
+    "status": "Status",
     "description": "Description",
     "contributors": "Contributors",
     "language": "Language",
