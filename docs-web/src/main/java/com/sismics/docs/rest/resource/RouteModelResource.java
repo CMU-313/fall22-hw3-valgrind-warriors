@@ -180,7 +180,7 @@ public class RouteModelResource extends BaseResource {
                 try {
                     status = RouteStepType.valueOf(statusStr);
                 } catch (IllegalArgumentException e) {
-                    throw new ClientException("ValidationError", priorityStr + "is not a valid route step priority type");
+                    throw new ClientException("ValidationError", priorityStr + "is not a valid route step status type");
                 }
 
 
