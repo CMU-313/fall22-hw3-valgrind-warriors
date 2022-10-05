@@ -96,6 +96,18 @@ public class RouteStep {
     @Column(name = "RTP_DELETEDATE_D")
     private Date deleteDate;
 
+    /**
+     * Priority level.
+     */
+    @Column(name = "RTP_PRIORITY_C", length = 50)
+    private String priorityStep;
+
+    /**
+     * Status.
+     */
+    @Column(name = "RTP_STATUS_C", length = 50)
+    private String statusStep;
+
     public String getId() {
         return id;
     }
@@ -213,6 +225,24 @@ public class RouteStep {
         return this;
     }
 
+    public String getPriority() {
+        return priorityStep;
+    }
+
+    public RouteStep setPriority(String priorityStep) {
+        this.priorityStep = priorityStep;
+        return this;
+    }
+
+    public String getStatus() {
+        return statusStep;
+    }
+
+    public RouteStep setStatus(String statusStep) {
+        this.statusStep = statusStep;
+        return this;
+    }
+
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)
@@ -226,6 +256,8 @@ public class RouteStep {
                 .add("order", order)
                 .add("createDate", createDate)
                 .add("endDate", endDate)
+                .add("priorityStep",priorityStep)
+                .add("statusStep",statusStep)
                 .toString();
     }
 }
