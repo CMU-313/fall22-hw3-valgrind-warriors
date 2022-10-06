@@ -11,6 +11,7 @@ import com.sismics.docs.core.util.jpa.QueryParam;
 import com.sismics.docs.core.util.jpa.QueryUtil;
 import com.sismics.docs.core.util.jpa.SortCriteria;
 import com.sismics.util.context.ThreadLocalContext;
+import com.sismics.docs.core.constant.RouteStepStatusType;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -149,6 +150,7 @@ public class RouteStepDao {
         q.setParameter("comment", comment);
         q.setParameter("validatorUserId", validatorUserId);
         q.setParameter("id", id);
+        q.setParameter("status", RouteStepStatusType.valueOf("COMPLETE"));
         q.executeUpdate();
     }
 }
