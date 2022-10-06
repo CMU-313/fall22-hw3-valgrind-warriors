@@ -570,7 +570,8 @@
   "workflow_transition": {
     "APPROVED": "Approved",
     "REJECTED": "Rejected",
-    "VALIDATED": "Validated"
+    "VALIDATED": "Validated",
+    "PRIORITY": "Priority"
   },
   "validation": {
     "required": "Required",
@@ -585,7 +586,13 @@
   "action_type": {
     "ADD_TAG": "Add a tag",
     "REMOVE_TAG": "Remove a tag",
-    "PROCESS_FILES": "Process files"
+    "PROCESS_FILES": "Process files",
+    "ADD_HIGH": "Add High Priority", 
+    "ADD_LOW": "Add Low Priority", 
+    "ADD_REG": "Add Regualar Priority",
+    "REMOVE_HIGH": "Remove High Priority", 
+    "REMOVE_LOW": "Remove Low Priority", 
+    "REMOVE_REG": "Remove Regualar Priority"
   },
   "pagination": {
     "previous": "Previous",

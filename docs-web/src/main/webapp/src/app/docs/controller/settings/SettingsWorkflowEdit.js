@@ -131,6 +131,12 @@ angular.module('docs').controller('SettingsWorkflowEdit', function($scope, $dial
         name: 'VALIDATED',
         actions: [],
         actionType: 'ADD_TAG'
+      }, {
+        name: 'PRIORITY', 
+        actions: [], 
+        actionType: 'ADD_HIGH', 
+        actionType: 'ADD_LOW', 
+        actionType: 'ADD_REG'
       }];
     } else if (step.type === 'APPROVE') {
       step.transitions = [{
@@ -141,6 +147,12 @@ angular.module('docs').controller('SettingsWorkflowEdit', function($scope, $dial
         name: 'REJECTED',
         actions: [],
         actionType: 'ADD_TAG'
+      }, {
+        name: 'PRIORITY', 
+        actions: [], 
+        actionType: 'ADD_HIGH', 
+        actionType: 'ADD_LOW', 
+        actionType: 'ADD_REG'
       }];
     }
   };
