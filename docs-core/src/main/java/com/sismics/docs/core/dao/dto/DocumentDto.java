@@ -111,15 +111,6 @@ public class DocumentDto {
      */
     private String highlight;
 
-    /**
-     * Priority of step.
-     */
-    private String currentStepPriority;
-
-    /**
-     * Status of step.
-     */
-    private String currentStepStatus;
 
     public String getId() {
         return id;
@@ -292,21 +283,4 @@ public class DocumentDto {
         return this;
     }
 
-    public String getCurrentStepPriority() {
-        return currentStepPriority;
-    }
-
-    public DocumentDto setCurrentStepPriority(String currentStepPriority) {
-        this.currentStepPriority = currentStepPriority;
-        return this;
-    }
-
-    public String getCurrentStepStatus() {
-        return currentStepStatus;
-    }
-
-    public DocumentDto setCurrentStepStatus(String currentStepStatus) {
-        this.currentStepStatus = currentStepStatus;
-        return this;
-    }
 }

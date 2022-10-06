@@ -119,17 +119,8 @@ public class Document implements Loggable {
     @Column(name = "DOC_DELETEDATE_D")
     private Date deleteDate;
 
-/**
-     * Rights.
-     */
-    @Column(name = "DOC_PRIORITY_C", length = 10)
-    private String priority;
 
-        /**
-     * Rights.
-     */
-    @Column(name = "DOC_STATUS_C", length = 15)
-    private String status;
+
     
     public String getId() {
         return id;
@@ -269,21 +260,7 @@ public class Document implements Loggable {
         this.updateDate = updateDate;
     }
 
-    public String getPriority() {
-        return priority;
-    }
-
-    public void setPriority(String priority) {
-        this.priority = priority;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
+   
 
     @Override
     public String toString() {
