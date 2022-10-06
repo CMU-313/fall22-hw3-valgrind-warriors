@@ -182,8 +182,8 @@ public class RouteResource extends BaseResource {
         comment = ValidationUtil.validateLength(comment, "comment", 1, 500, true);
         RouteStepTransition routeStepTransition = RouteStepTransition.valueOf(transitionStr);
         if (routeStepDto.getType() == RouteStepType.VALIDATE && routeStepTransition != RouteStepTransition.VALIDATED
-                || routeStepDto.getType() == RouteStepType.APPROVE
-                && routeStepTransition != RouteStepTransition.APPROVED && routeStepTransition != RouteStepTransition.REJECTED) {
+            || routeStepDto.getType() == RouteStepType.APPROVE
+            && routeStepTransition != RouteStepTransition.APPROVED && routeStepTransition != RouteStepTransition.REJECTED) {
             throw new ClientException("ValidationError", "Invalid transition for this route step type");
         }
 
