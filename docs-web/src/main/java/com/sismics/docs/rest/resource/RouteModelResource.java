@@ -169,7 +169,7 @@ public class RouteModelResource extends BaseResource {
                 String priorityStr = step.getString("priority");
                 RouteStepPriorityType priority;
                 try {
-                    priority = RouteStepType.valueOf(priorityStr);
+                    priority = RouteStepPriorityType.valueOf(priorityStr);
                 } catch (IllegalArgumentException e) {
                     throw new ClientException("ValidationError", priorityStr + "is not a valid route step priority type");
                 }
@@ -178,7 +178,7 @@ public class RouteModelResource extends BaseResource {
                 String statusStr = step.getString("status");
                 RouteStepStatusType status;
                 try {
-                    status = RouteStepType.valueOf(statusStr);
+                    status = RouteStepStatusType.valueOf(statusStr);
                 } catch (IllegalArgumentException e) {
                     throw new ClientException("ValidationError", priorityStr + "is not a valid route step status type");
                 }
