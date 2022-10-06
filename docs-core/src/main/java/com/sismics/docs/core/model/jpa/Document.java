@@ -278,7 +278,7 @@ public class Document implements Loggable {
     }
 
     public String getStatus() {
-        return priority;
+        return status;
     }
 
     public void setStatus(String status) {
