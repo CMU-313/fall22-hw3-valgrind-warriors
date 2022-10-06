@@ -66,6 +66,7 @@
     "shared": "Shared",
     "current_step_name": "Current step",
     "title": "Title",
+    "status": "Status",
     "description": "Description",
     "contributors": "Contributors",
     "language": "Language",
@@ -180,7 +181,7 @@
       "footer_sismics": "Crafted with <span class=\"fas fa-heart\"></span> by <a href=\"https://www.sismics.com\" target=\"_blank\">Sismics</a>",
       "api_documentation": "API Documentation",
       "feedback": "Give us a feedback",
-      "workflow_document_list": "Documents assigned to you",
+      "workflow_document_list": "Dashboard",
       "select_all": "Select all",
       "select_none": "Select none"
     },
