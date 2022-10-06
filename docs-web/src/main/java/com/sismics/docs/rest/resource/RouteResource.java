@@ -107,7 +107,9 @@ public class RouteResource extends BaseResource {
                         .setOrder(order)
                         .setType(RouteStepType.valueOf(step.getString("type")))
                         .setTransitions(transitions)
-                        .setTargetId(SecurityUtil.getTargetIdFromName(targetName, targetType));
+                        .setTargetId(SecurityUtil.getTargetIdFromName(targetName, targetType))
+                        .setPriority(RouteStepPriorityType.valueOf(step.getString("priority")))
+                        .setStatus(RouteStepStatusType.valueOf("IN_PROGRESS"));
 
                 if (routeStep.getTargetId() == null) {
                     throw new ClientException("InvalidRouteModel", "A step has an invalid target");
