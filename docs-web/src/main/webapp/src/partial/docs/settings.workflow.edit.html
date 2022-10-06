@@ -41,12 +41,6 @@
                 <div class="col-xs-6">
                   <strong>{{ 'settings.workflow.edit.target' | translate }}</strong>
                 </div>
-                <!--trashcan icon moved here-->
-                <div class="col-xs-1">
-                  <span class="btn btn-link" ng-click="removeStep(step)">
-                    <span class="fas fa-trash"></span>
-                  </span>
-                </div>
               </div>
               <div class="row">
                 <div class="col-xs-5">
@@ -70,7 +64,11 @@
                          typeahead-wait-ms="200" />
                 
                 
-                
+                <div class="col-xs-1">
+                  <span class="btn btn-link" ng-click="removeStep(step)">
+                    <span class="fas fa-trash"></span>
+                  </span>
+                </div>
               </div>
 
               <div class="row">
