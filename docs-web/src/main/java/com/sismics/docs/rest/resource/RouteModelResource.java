@@ -203,12 +203,14 @@ public class RouteModelResource extends BaseResource {
                         throw new ClientException("ValidationError", "VALIDATE steps should have one transition");
                     }
                     transitionsNames.add(RouteStepTransition.VALIDATED);
+                    transitionsNames.add(RouteStepTransition.PRIORITY);
                 } else if (type == RouteStepType.APPROVE) {
                     if (transitions.size() != 2) {
                         throw new ClientException("ValidationError", "APPROVE steps should have two transition");
                     }
                     transitionsNames.add(RouteStepTransition.APPROVED);
                     transitionsNames.add(RouteStepTransition.REJECTED);
+                    transitionsNames.add(RouteStepTransition.PRIORITY);
                 }
 
                 for (int j = 0; j < transitions.size(); j++) {
