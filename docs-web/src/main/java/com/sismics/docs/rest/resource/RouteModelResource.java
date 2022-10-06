@@ -169,12 +169,10 @@ public class RouteModelResource extends BaseResource {
                 String priorityStr = step.getString("priority");
                 RouteStepPriorityType priority;
                 try {
-                    System.out.println(priorityStr);
                     priority = RouteStepPriorityType.valueOf(priorityStr);
                 } catch (IllegalArgumentException e) {
                     throw new ClientException("ValidationError", priorityStr + "is not a valid route step priority type");
                 }
-
 
                 // Target
                 JsonObject target = step.getJsonObject("target");
