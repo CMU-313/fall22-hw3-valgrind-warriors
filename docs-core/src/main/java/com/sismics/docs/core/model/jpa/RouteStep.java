@@ -1,6 +1,8 @@
 package com.sismics.docs.core.model.jpa;
 
 import com.google.common.base.MoreObjects;
+import com.sismics.docs.core.constant.RouteStepPriorityType;
+import com.sismics.docs.core.constant.RouteStepStatusType;
 import com.sismics.docs.core.constant.RouteStepTransition;
 import com.sismics.docs.core.constant.RouteStepType;
 
@@ -100,13 +102,15 @@ public class RouteStep {
      * Priority level.
      */
     @Column(name = "RTP_PRIORITY_C", length = 50)
-    private String priorityStep;
+    @Enumerated(EnumType.STRING)
+    private RouteStepPriorityType priority;
 
     /**
      * Status.
      */
     @Column(name = "RTP_STATUS_C", length = 50)
-    private String statusStep;
+    @Enumerated(EnumType.STRING)
+    private RouteStepStatusType status;
 
     public String getId() {
         return id;
@@ -225,21 +229,21 @@ public class RouteStep {
         return this;
     }
 
-    public String getPriority() {
-        return priorityStep;
+    public RouteStepPriorityType getPriority() {
+        return priority;
     }
 
-    public RouteStep setPriority(String priorityStep) {
-        this.priorityStep = priorityStep;
+    public RouteStep setPriority(RouteStepPriorityType priorityStep) {
+        this.priority = priorityStep;
         return this;
     }
 
-    public String getStatus() {
-        return statusStep;
+    public RouteStepStatusType getStatus() {
+        return status;
     }
 
-    public RouteStep setStatus(String statusStep) {
-        this.statusStep = statusStep;
+    public RouteStep setStatus(RouteStepStatusType statusStep) {
+        this.status = statusStep;
         return this;
     }
 
@@ -256,8 +260,8 @@ public class RouteStep {
                 .add("order", order)
                 .add("createDate", createDate)
                 .add("endDate", endDate)
-                .add("priorityStep",priorityStep)
-                .add("statusStep",statusStep)
+                .add("priority",priority)
+                .add("status",status)
                 .toString();
     }
 }
