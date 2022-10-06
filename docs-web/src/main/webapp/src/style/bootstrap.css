@@ -3997,6 +3997,9 @@ a.label:focus {
   position: relative;
   top: -1px;
 }
+.label-level {
+  background-color: rgb(230, 77, 77);
+}
 .label-default {
   background-color: #777;
 }
