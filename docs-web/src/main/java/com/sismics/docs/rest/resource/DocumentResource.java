@@ -466,7 +466,7 @@ public class DocumentResource extends BaseResource {
                     .add("active_route", documentDto.isActiveRoute())
                     .add("current_step_name", JsonUtil.nullable(documentDto.getCurrentStepName()))
                     .add("current_step_status", JsonUtil.nullable(documentDto.getCurrentStepStatus())
-                    .add("current_step_priority", JsonUtil.nullable(documentDto.getCurrentStepPriority())
+                    .add("current_step_priority", JsonUtil.nullable(documentDto.getCurrentStepPriority()))
                     .add("file_count", documentDto.getFileCount())
                     .add("tags", tags);
             if (Boolean.TRUE == files) {
