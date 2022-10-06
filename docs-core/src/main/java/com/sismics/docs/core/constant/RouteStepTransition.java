@@ -19,7 +19,5 @@ public enum RouteStepTransition {
     /**
      * Route step validated.
      */
-    VALIDATED, 
-
-    PRIORITY
+    VALIDATED
 }
