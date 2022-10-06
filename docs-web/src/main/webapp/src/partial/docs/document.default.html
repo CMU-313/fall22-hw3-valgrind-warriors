@@ -70,8 +70,6 @@
         <thead>
           <tr>
             <th class="col-xs-6">{{ 'document.title' | translate }}</th>
-            <th class="col-xs-6">{{ 'document.current_step_priority' | translate }}</th>
-            <th class="col-xs-6">{{ 'document.current_step_status' | translate }}</th>
             <th class="col-xs-3">{{ 'document.current_step_name' | translate }}</th>
             <th class="col-xs-3">{{ 'document.creation_date' | translate }}</th>
           </tr>
@@ -86,8 +84,6 @@
                 </span>
               </div>
             </td>
-            <td>{{ document.current_step_priority }}</td>
-            <td>{{ document.current_step_status }}</td>
             <td>{{ document.current_step_name }}</td>
             <td>
               <div class="text-muted small">{{ document.create_date | timeAgo: dateFormat }}</div>
