@@ -1,5 +1,7 @@
 package com.sismics.docs.core.dao.dto;
 
+import com.sismics.docs.core.constant.RouteStepPriorityType;
+import com.sismics.docs.core.constant.RouteStepStatusType;
 import com.sismics.docs.core.constant.RouteStepType;
 import com.sismics.util.JsonUtil;
 
@@ -67,10 +69,35 @@ public class RouteStepDto {
      */
     private String transitions;
 
+    private RouteStepPriorityType priority;
+
+
+    public RouteStepPriorityType getPriority() {
+        return priority;
+    }
+
+    public void setPriority(RouteStepPriorityType priority) {
+        this.priority = priority;
+    }
+
+    public RouteStepStatusType getStatus() {
+        return status;
+    }
+
+    public void setStatus(RouteStepStatusType status) {
+        this.status = status;
+    }
+
+    private RouteStepStatusType status;
+
+    
+
     /**
      * Route ID.
      */
     private String routeId;
+
+    
 
     public String getId() {
         return id;
@@ -186,6 +213,7 @@ public class RouteStepDto {
      * @return JSON object builder
      */
     public JsonObjectBuilder toJson() {
+        System.out.println(getPriority().name());
         return Json.createObjectBuilder()
                 .add("name", getName())
                 .add("type", getType().name())
@@ -196,6 +224,8 @@ public class RouteStepDto {
                         .add("id", getTargetId())
                         .add("name", JsonUtil.nullable(getTargetName()))
                         .add("type", getTargetType()))
-                .add("transition", JsonUtil.nullable(getTransition()));
+                .add("transition", JsonUtil.nullable(getTransition()))
+                .add("priority", getPriority().name())
+                .add("status", "IN PROGRESS");
     }
 }

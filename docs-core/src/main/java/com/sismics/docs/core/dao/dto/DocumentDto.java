@@ -111,6 +111,7 @@ public class DocumentDto {
      */
     private String highlight;
 
+
     public String getId() {
         return id;
     }
@@ -281,4 +282,5 @@ public class DocumentDto {
         this.highlight = highlight;
         return this;
     }
+
 }

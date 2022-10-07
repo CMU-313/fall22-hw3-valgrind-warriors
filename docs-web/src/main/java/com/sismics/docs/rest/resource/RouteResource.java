@@ -100,14 +100,17 @@ public class RouteResource extends BaseResource {
                 if (step.containsKey("transitions")) {
                     transitions = step.getJsonArray("transitions").toString();
                 }
-
+                
+                System.out.println(step.getString("priority"));
                 RouteStep routeStep = new RouteStep()
                         .setRouteId(route.getId())
                         .setName(step.getString("name"))
                         .setOrder(order)
                         .setType(RouteStepType.valueOf(step.getString("type")))
                         .setTransitions(transitions)
-                        .setTargetId(SecurityUtil.getTargetIdFromName(targetName, targetType));
+                        .setTargetId(SecurityUtil.getTargetIdFromName(targetName, targetType))
+                        .setPriority(RouteStepPriorityType.valueOf(step.getString("priority")))
+                        .setStatus(RouteStepStatusType.valueOf("IN_PROGRESS"));
 
                 if (routeStep.getTargetId() == null) {
                     throw new ClientException("InvalidRouteModel", "A step has an invalid target");
@@ -180,8 +183,8 @@ public class RouteResource extends BaseResource {
         comment = ValidationUtil.validateLength(comment, "comment", 1, 500, true);
         RouteStepTransition routeStepTransition = RouteStepTransition.valueOf(transitionStr);
         if (routeStepDto.getType() == RouteStepType.VALIDATE && routeStepTransition != RouteStepTransition.VALIDATED
-                || routeStepDto.getType() == RouteStepType.APPROVE
-                && routeStepTransition != RouteStepTransition.APPROVED && routeStepTransition != RouteStepTransition.REJECTED) {
+            || routeStepDto.getType() == RouteStepType.APPROVE
+            && routeStepTransition != RouteStepTransition.APPROVED && routeStepTransition != RouteStepTransition.REJECTED) {
             throw new ClientException("ValidationError", "Invalid transition for this route step type");
         }
 

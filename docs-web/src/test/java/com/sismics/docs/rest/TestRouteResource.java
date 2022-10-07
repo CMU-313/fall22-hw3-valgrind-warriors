@@ -118,6 +118,8 @@ public class TestRouteResource extends BaseJerseyTest {
         Assert.assertTrue(step.isNull("end_date"));
         Assert.assertTrue(step.isNull("validator_username"));
         Assert.assertTrue(step.isNull("transition"));
+        Assert.assertTrue(step.isNull("priority"));
+        Assert.assertTrue(step.isNull("status"));
         JsonObject target = step.getJsonObject("target");
         Assert.assertEquals("administrators", target.getString("id"));
         Assert.assertEquals("administrators", target.getString("name"));
@@ -168,9 +170,11 @@ public class TestRouteResource extends BaseJerseyTest {
         Assert.assertEquals("VALIDATE", step.getString("type"));
         Assert.assertTrue(step.isNull("comment"));
         Assert.assertFalse(step.isNull("end_date"));
+        Assert.assertFalse(step.isNull("priority"));
         Assert.assertEquals("admin", step.getString("validator_username"));
         Assert.assertEquals("VALIDATED", step.getString("transition"));
-
+        Assert.assertEquals("IN_PROGRESS", step.getString("status"));
+        
         // Get document 1 as admin
         json = target().path("/document/" + document1Id).request()
                 .cookie(TokenBasedSecurityFilter.COOKIE_NAME, adminToken)

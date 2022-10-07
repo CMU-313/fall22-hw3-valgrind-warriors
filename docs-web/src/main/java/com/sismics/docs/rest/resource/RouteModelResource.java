@@ -149,7 +149,7 @@ public class RouteModelResource extends BaseResource {
             }
             for (int i = 0; i < stepsJson.size(); i++) {
                 JsonObject step = stepsJson.getJsonObject(i);
-                if (step.size() != 4) {
+                if (step.size() != 5) {
                     throw new ClientException("ValidationError", "Steps data not valid");
                 }
 
@@ -163,6 +163,15 @@ public class RouteModelResource extends BaseResource {
                     type = RouteStepType.valueOf(typeStr);
                 } catch (IllegalArgumentException e) {
                     throw new ClientException("ValidationError", typeStr + "is not a valid route step type");
+                }
+                
+                // Priority
+                String priorityStr = step.getString("priority");
+                RouteStepPriorityType priority;
+                try {
+                    priority = RouteStepPriorityType.valueOf(priorityStr);
+                } catch (IllegalArgumentException e) {
+                    throw new ClientException("ValidationError", priorityStr + "is not a valid route step priority type");
                 }
 
                 // Target

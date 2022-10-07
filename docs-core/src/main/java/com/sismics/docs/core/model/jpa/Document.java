@@ -118,6 +118,9 @@ public class Document implements Loggable {
      */
     @Column(name = "DOC_DELETEDATE_D")
     private Date deleteDate;
+
+
+
     
     public String getId() {
         return id;
@@ -256,6 +259,8 @@ public class Document implements Loggable {
     public void setUpdateDate(Date updateDate) {
         this.updateDate = updateDate;
     }
+
+   
 
     @Override
     public String toString() {

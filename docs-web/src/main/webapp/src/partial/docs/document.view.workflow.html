@@ -10,9 +10,10 @@
   <strong translate="document.view.workflow.no_workflow"></strong>
 </p>
 
-<form name="startWorkflowForm" class="form-horizontal" novalidate ng-show="!document.route_step && routemodels.length > 0">
+<form name="startWorkflowForm" class="form-horizontal" novalidate
+  ng-show="!document.route_step && routemodels.length > 0">
   <div class="form-group" ng-class="{ 'has-error': !startWorkflowForm.routemodel.$valid && startWorkflowForm.$dirty }">
-    <label for="inputRouteModel" class="col-sm-3">
+    <label for="inputRouteModel" class=" m-3">
       {{ 'document.view.workflow.workflow_start_label' | translate }}
       <p ng-if="userInfo.base_functions.indexOf('ADMIN') != -1">
         <a href="#/settings/workflow">{{ 'document.view.workflow.add_more_workflow' | translate }}</a>
@@ -24,15 +25,14 @@
       </select>
     </div>
     <div class="col-sm-3">
-      <span class="help-block" ng-show="startWorkflowForm.routemodel.$error.required && startWorkflowForm.$dirty">{{ 'validation.required' | translate }}</span>
+      <span class="help-block" ng-show="startWorkflowForm.routemodel.$error.required && startWorkflowForm.$dirty">{{
+        'validation.required' | translate }}</span>
     </div>
   </div>
 
   <div class="form-group">
     <div class="col-sm-offset-3 col-sm-9">
-      <button type="submit" class="btn btn-primary"
-              ng-disabled="!startWorkflowForm.$valid"
-              ng-click="startWorkflow()">
+      <button type="submit" class="btn btn-primary" ng-disabled="!startWorkflowForm.$valid" ng-click="startWorkflow()">
         {{ 'document.view.workflow.start_workflow_submit' | translate }}
       </button>
     </div>
@@ -41,40 +41,53 @@
 
 <table class="table" ng-repeat="route in routes">
   <caption translate="document.view.workflow.full_name"
-           translate-values="{ name: route.name, create_date: route.create_date }"></caption>
+    translate-values="{ name: route.name, create_date: route.create_date }"></caption>
   <thead>
-  <tr>
-    <th>Type</th>
-    <th>Name</th>
-    <th>For</th>
-    <th>Validation</th>
-  </tr>
+    <tr>
+      <th>Type</th>
+      <th>Name</th>
+      <th>For</th>
+      <th>Priority</th>
+      <th>Status</th>
+      <th>Validation</th>
+    </tr>
   </thead>
   <tbody>
-  <tr ng-repeat="step in route.steps" ng-class="{
+    <tr ng-repeat="step in route.steps" ng-class="{
           'bg-success': step.transition == 'VALIDATED' || step.transition == 'APPROVED',
           'bg-danger': step.transition == 'REJECTED'
       }">
-    <td>
-      <span class="fas fa-exchange-alt" ng-if="step.type == 'APPROVE'"></span>
-      <span class="fas fa-check-circle" ng-if="step.type == 'VALIDATE'"></span>
-      {{ 'workflow_type.' + step.type | translate }}
-    </td>
-    <td>{{ step.name }}</td>
-    <td>
-      <acl data="step.target"></acl>
-    </td>
-    <td>
-      <span ng-show="step.end_date">
+      <td>
+        <span class="fas fa-exchange-alt" ng-if="step.type == 'APPROVE'"></span>
+        <span class="fas fa-check-circle" ng-if="step.type == 'VALIDATE'"></span>
+        {{ 'workflow_type.' + step.type | translate }}
+      </td>
+      <td>{{ step.name }}</td>
+      <td>
+        <acl data="step.target"></acl>
+      </td>
+
+      <!--adding column description for Priority-->
+      <td>{{ step.priority }}</td>
+      
+      <!--adding column description for status-->
+      <td>{{ step.status }}</td>
+      <!--end changes-->
+
+
+      <td>
+        <span ng-show="step.end_date">
           {{ 'workflow_transition.' + step.transition | translate }}
           {{ step.end_date | timeAgo: dateTimeFormat }}
           by
-        <a href="#/user/{{ step.validator_username }}" class="label label-default">{{ step.validator_username }}</a>
-        <span ng-show="step.comment" class="text-">
-          <br/><em>{{ step.comment }}</em>
+          <a href="#/user/{{ step.validator_username }}" class="label label-default">{{ step.validator_username }}</a>
+          <span ng-show="step.comment" class="text-">
+            <br /><em>{{ step.comment }}</em>
+          </span>
         </span>
-      </span>
-    </td>
-  </tr>
+      </td>
+
+
+    </tr>
   </tbody>
 </table>

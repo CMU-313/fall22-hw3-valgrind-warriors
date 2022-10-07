@@ -1,6 +1,8 @@
 package com.sismics.docs.core.model.jpa;
 
 import com.google.common.base.MoreObjects;
+import com.sismics.docs.core.constant.RouteStepPriorityType;
+import com.sismics.docs.core.constant.RouteStepStatusType;
 import com.sismics.docs.core.constant.RouteStepTransition;
 import com.sismics.docs.core.constant.RouteStepType;
 
@@ -95,6 +97,20 @@ public class RouteStep {
      */
     @Column(name = "RTP_DELETEDATE_D")
     private Date deleteDate;
+
+    /**
+     * Priority level.
+     */
+    @Column(name = "RTP_PRIORITY_C", length = 50)
+    @Enumerated(EnumType.STRING)
+    private RouteStepPriorityType priority;
+
+    /**
+     * Status.
+     */
+    @Column(name = "RTP_STATUS_C", length = 50)
+    @Enumerated(EnumType.STRING)
+    private RouteStepStatusType status;
 
     public String getId() {
         return id;
@@ -213,6 +229,24 @@ public class RouteStep {
         return this;
     }
 
+    public RouteStepPriorityType getPriority() {
+        return priority;
+    }
+
+    public RouteStep setPriority(RouteStepPriorityType priorityStep) {
+        this.priority = priorityStep;
+        return this;
+    }
+
+    public RouteStepStatusType getStatus() {
+        return status;
+    }
+
+    public RouteStep setStatus(RouteStepStatusType statusStep) {
+        this.status = statusStep;
+        return this;
+    }
+
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)
@@ -226,6 +260,8 @@ public class RouteStep {
                 .add("order", order)
                 .add("createDate", createDate)
                 .add("endDate", endDate)
+                .add("priority",priority)
+                .add("status",status)
                 .toString();
     }
 }
