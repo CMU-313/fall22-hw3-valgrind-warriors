@@ -2,6 +2,7 @@ package com.sismics.docs.core.dao;
 
 import com.google.common.base.Joiner;
 import com.sismics.docs.core.constant.AclTargetType;
+import com.sismics.docs.core.constant.RouteStepPriorityType;
 import com.sismics.docs.core.constant.RouteStepTransition;
 import com.sismics.docs.core.constant.RouteStepType;
 import com.sismics.docs.core.dao.criteria.RouteStepCriteria;
@@ -69,7 +70,7 @@ public class RouteStepDao {
         Map<String, Object> parameterMap = new HashMap<>();
         List<String> criteriaList = new ArrayList<>();
 
-        StringBuilder sb = new StringBuilder("select rs.RTP_ID_C, rs.RTP_NAME_C c0, rs.RTP_TYPE_C c1, rs.RTP_TRANSITION_C c2, rs.RTP_COMMENT_C c3, rs.RTP_IDTARGET_C c4, u.USE_USERNAME_C as targetUsername, g.GRP_NAME_C, rs.RTP_ENDDATE_D c5, uv.USE_USERNAME_C as validatorUsername, rs.RTP_IDROUTE_C, rs.RTP_TRANSITIONS_C, rs.RTP_ORDER_N c6")
+        StringBuilder sb = new StringBuilder("select rs.RTP_ID_C, rs.RTP_NAME_C c0, rs.RTP_TYPE_C c1, rs.RTP_TRANSITION_C c2, rs.RTP_COMMENT_C c3, rs.RTP_IDTARGET_C c4, u.USE_USERNAME_C as targetUsername, g.GRP_NAME_C, rs.RTP_ENDDATE_D c5, uv.USE_USERNAME_C as validatorUsername, rs.RTP_IDROUTE_C, rs.RTP_TRANSITIONS_C, rs.RTP_ORDER_N c6, rs.RTP_PRIORITY_C, rs.RTP_STATUS_C")
             .append(" from T_ROUTE_STEP rs ")
             .append(" join T_ROUTE r on r.RTE_ID_C = rs.RTP_IDROUTE_C ")
             .append(" left join T_USER uv on uv.USE_ID_C = rs.RTP_IDVALIDATORUSER_C ")
@@ -102,6 +103,7 @@ public class RouteStepDao {
         // Assemble results
         List<RouteStepDto> dtoList = new ArrayList<>();
         for (Object[] o : l) {
+            
             int i = 0;
             RouteStepDto dto = new RouteStepDto();
             dto.setId((String) o[i++]);
@@ -110,6 +112,8 @@ public class RouteStepDao {
             dto.setTransition((String) o[i++]);
             dto.setComment((String) o[i++]);
             dto.setTargetId((String) o[i++]);
+           
+
             String userName = (String) o[i++];
             String groupName = (String) o[i++];
             if (userName != null) {
@@ -124,7 +128,10 @@ public class RouteStepDao {
             dto.setEndDateTimestamp(endDateTimestamp == null ? null : endDateTimestamp.getTime());
             dto.setValidatorUserName((String) o[i++]);
             dto.setRouteId((String) o[i++]);
-            dto.setTransitions((String) o[i]);
+            dto.setTransitions((String) o[i++]);
+            System.out.println(o[i]);
+            dto.setPriority(RouteStepPriorityType.values()[(int)o[i++]]);
+            //dto.setStatus(RouteStepStatusType.valueOf((String) o[i]));
             dtoList.add(dto);
         }
         return dtoList;

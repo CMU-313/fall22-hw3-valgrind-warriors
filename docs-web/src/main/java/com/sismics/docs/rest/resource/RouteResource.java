@@ -100,7 +100,8 @@ public class RouteResource extends BaseResource {
                 if (step.containsKey("transitions")) {
                     transitions = step.getJsonArray("transitions").toString();
                 }
-
+                
+                System.out.println(step.getString("priority"));
                 RouteStep routeStep = new RouteStep()
                         .setRouteId(route.getId())
                         .setName(step.getString("name"))
