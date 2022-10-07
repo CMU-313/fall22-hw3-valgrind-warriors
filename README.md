@@ -10,6 +10,7 @@ Teedy is an open source, lightweight document management system for individuals 
 
 ![New!](https://teedy.io/img/laptop-demo.png?20180301)
 
+
 # Features
 
 - Responsive user interface
@@ -39,6 +40,7 @@ Teedy is an open source, lightweight document management system for individuals 
 - Fully featured Android client
 - [Bulk files importer](https://github.com/sismics/docs/tree/master/docs-importer) (single or scan mode)
 - Tested to one million documents
+
 
 
 # Native Installation

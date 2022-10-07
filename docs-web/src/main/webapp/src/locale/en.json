@@ -588,11 +588,11 @@
     "REMOVE_TAG": "Remove a tag",
     "PROCESS_FILES": "Process files",
     "ADD_HIGH": "Add High Priority", 
+    "REMOVE_HIGH": "Remove High Priority",
     "ADD_LOW": "Add Low Priority", 
-    "ADD_REG": "Add Regualar Priority",
-    "REMOVE_HIGH": "Remove High Priority", 
     "REMOVE_LOW": "Remove Low Priority", 
-    "REMOVE_REG": "Remove Regualar Priority"
+    "ADD_REG": "Add Regular Priority",
+    "REMOVE_REG": "Remove Regular Priority"
   },
   "pagination": {
     "previous": "Previous",
