@@ -10,12 +10,16 @@ Teedy is an open source, lightweight document management system for individuals 
 
 ![New!](https://teedy.io/img/laptop-demo.png?20180301)
 
-#Added Features 
+
+# Added Features 
 
 - Priority and status option via workflow main page and workflow settings
   - There are 3 options (low, medium, high) for priority
   - There are 2 statuses (in-progress, complete)
 - Test cases for status and priority to ensure no null values 
+
+Screenshot of what we did: 
+![New!](https://drive.google.com/file/d/1nHD9WqUUBl6IUXrwb4-2E_f9JCKoJpSI/view?usp=sharing)
 
 # Features
 
